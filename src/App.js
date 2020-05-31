@@ -2,6 +2,7 @@
 //importar por defecto sin {} como React
 //Componente es important
 import React, { Component } from 'react';
+import axios from 'axios'
 import FormularioSimple from './components/FormularioSimple'
 import './App.css';
 
@@ -14,7 +15,11 @@ class App extends Component {
     constructor() {
         //super llama al constructor de la cual se extiende la cual es component
         super()
-        console.log('Aqui se hacen llamados ajax con fetch')
+        axios.post('https://jsonplaceholder.typicode.com/users', {
+            name: 'Osiel Torres',
+            username: 'Oso',
+        }).then(({response})=>console.log(response))
+
     }
   render() {
     return (
