@@ -2,8 +2,7 @@
 //importar por defecto sin {} como React
 //Componente es important
 import React, { Component } from 'react';
-import Cabecera from './components/Cabecera'
-import P from './components/P'
+import FormularioSimple from './components/FormularioSimple'
 import './App.css';
 
 
@@ -11,30 +10,21 @@ import './App.css';
 
 
 class App extends Component {
-    state = {
-        miau: 'React App'
-    }
-
-    manejaClick = texto => {
-        console.log(texto)
-    }
-
-    cambiarTextoDelEstado = () => {
-        this.setState({ miau: 'Hello World'})
+    //se llama una unica vez a menos que se refresque
+    constructor() {
+        //super llama al constructor de la cual se extiende la cual es component
+        super()
+        console.log('Aqui se hacen llamados ajax con fetch')
     }
   render() {
-    const { miau } = this.state
     return (
       <div className="App">
-        <Cabecera miau={ miau } manejaClick={ this.manejaClick }/>
-        <P onClick={ this.cambiarTextoDelEstado }>
-            { miau }
-        </P>
+        <FormularioSimple/>
         </div>
     );
   }
 }
 //si quiero importar hola en otro lado tengo que ponerle llaves
 export const hola = 'hola'
-//sin llaves se importa lo que se exporta por defecto 
+//sin llaves se importa lo que se exporta por defecto
 export default App;

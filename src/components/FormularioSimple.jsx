@@ -27,18 +27,18 @@ export default class FormularioSimple extends Component{
         e.preventDefault()
         const {errors, ...sinErrors} = this.state
         const result = validate(sinErrors)
-        console.log(Object.keys(result))
-
         this.setState({errors: result})
         if (!Object.keys(result).length){
-        console.log('Formulario valido')
+            console.log('Formulario valido')
+
         }
+        e.target.reset()
+
 
     }
 
     render() {
         const { errors } = this.state
-        console.log(this.state)
         return(
             <form onSubmit={this.handleSubmit}>
                 <input name='nombre' onChange={this.handleChange} />
